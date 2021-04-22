@@ -70,6 +70,7 @@ public class Extractor {
 			extraerDatos(entradas, grupo);
 
 			List<GruposInves> gruposInves = grupo.getInvestigadores();
+			
 			ArrayList<Investigador> investigadores = utils.getInvestigadores();
 			boolean repetido = false;
 
@@ -106,7 +107,7 @@ public class Extractor {
 		} else {
 			System.out.println("El Status Code no es OK es: " + statusConnectionCode);
 		}
-
+		
 		return new AsyncResult<Grupo>(grupo);
 	}
 
@@ -471,6 +472,7 @@ public class Extractor {
 			
 			 }
 		}
+		
 	}
 	
 	public void invesRepetido(Investigador investigador, String estado) {

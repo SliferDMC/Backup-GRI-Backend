@@ -114,8 +114,10 @@ public class ExtractorGenerales {
 				Future<Investigador> auxInvestigador;
 				if (elem.get(i + 3).contains("Actual") || elem.get(i + 4).contains("Actual")
 						|| elem.get(i + 5).contains("Actual")) {
-					auxInvestigador = investigadorController.extraer("ACTUAL", link);
-					grupo.addInvestigador(auxInvestigador.get(), "ACTUAL");
+
+						auxInvestigador = investigadorController.extraer("ACTUAL", link);
+
+						grupo.addInvestigador(auxInvestigador.get(), "ACTUAL");
 				} else {
 					auxInvestigador = investigadorController.extraer("NO ACTUAL", link);
 					grupo.addInvestigador(auxInvestigador.get(), "NO ACTUAL");

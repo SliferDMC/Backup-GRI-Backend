@@ -47,8 +47,16 @@ public class Main implements CommandLineRunner {
 	Extractor extractor;
 
 	public List<Grupo> scrapData() throws InterruptedException {
-
+		
 		List<Grupo> gruposInicial = leerDataSet();
+		
+		///// PRUEBA PRUEBA PRUEBA 
+		
+//		List<Grupo> gruposInicial = new ArrayList<>();
+//		
+//		gruposInicial.add(leerDataSetPruebas(5922L));
+		
+		///// PRUEBA PRUEBA PRUEBA 
 		
 		lineasInvestigacionDAO.deleteAll();
 
@@ -58,7 +66,7 @@ public class Main implements CommandLineRunner {
 
 		List<Grupo> grupos = new ArrayList<Grupo>();
 		List<Future<Grupo>> resultList = new ArrayList<Future<Grupo>>();
-
+		
 		for (int i = 0; i < urlSet.size(); i++) {
 			Future<Grupo> result = extractor.scrapData(urlSet.get(i), gruposInicial.get(i));
 			resultList.add(result);
