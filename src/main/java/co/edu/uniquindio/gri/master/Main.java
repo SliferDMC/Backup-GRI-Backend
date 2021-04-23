@@ -48,13 +48,13 @@ public class Main implements CommandLineRunner {
 
 	public List<Grupo> scrapData() throws InterruptedException {
 		
-		List<Grupo> gruposInicial = leerDataSet();
+		//List<Grupo> gruposInicial = leerDataSet();
 		
 		///// PRUEBA PRUEBA PRUEBA 
 		
-//		List<Grupo> gruposInicial = new ArrayList<>();
-//		
-//		gruposInicial.add(leerDataSetPruebas(5922L));
+		List<Grupo> gruposInicial = new ArrayList<>();
+		
+		gruposInicial.add(leerDataSetPruebas(2591L));
 		
 		///// PRUEBA PRUEBA PRUEBA 
 		

@@ -162,6 +162,14 @@ public class ExtractorGenerales {
 						investigador.setNombreInvestigadorAux(investigador.getNombre());
 					}
 
+					///////// PRUEBA
+					
+					if (elemInfoPersonal.get(i).equals("SEXO")) {
+						investigador.setSexo(elemInfoPersonal.get(i + 1));
+					}
+					
+			        ///////// PRUEBA
+					
 					// Extraccion de la formacion academica
 					if (elemInfoPersonal.get(i).startsWith("FORMACIÓN ACADÉMICA")) {
 						investigador.setNivelAcademico(elemInfoPersonal.get(i + 1));
@@ -193,6 +201,14 @@ public class ExtractorGenerales {
 						investigador.setPertenencia("INVESTIGADOR EXTERNO");
 					}
 				}
+				
+				// PRUEBA
+				
+				if (investigador.getSexo() == null) {
+					investigador.setSexo("NO ESPECIFICADO");
+				}
+				
+				// PRUEBA
 
 			} catch (Exception e) {
 				e.printStackTrace();
