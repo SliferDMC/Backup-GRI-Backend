@@ -48,9 +48,9 @@ public class Extractor {
 	ArrayUtils utils;
 
 	@Async("executor1")
-	public Future<Grupo> scrapData(String url, Grupo grupo) {
+	public Future<Grupo> scrapData(String url, Grupo grupo) {		
 		int statusConnectionCode = util.getStatusConnectionCode(url);
-
+		
 		if (statusConnectionCode == 200) {
 
 			// Extrae todo el HTML de la url enviada por parametro
@@ -62,6 +62,7 @@ public class Extractor {
 
 			// Extraer Nombre del Grupo de Investigación
 			for (Element elem : entradaNombre) {
+				
 				if (elem.toString().contains("span class")) {
 					grupo.setNombre(elem.text().toUpperCase());
 				}
@@ -70,7 +71,6 @@ public class Extractor {
 			extraerDatos(entradas, grupo);
 
 			List<GruposInves> gruposInves = grupo.getInvestigadores();
-			
 			ArrayList<Investigador> investigadores = utils.getInvestigadores();
 			boolean repetido = false;
 
@@ -107,7 +107,7 @@ public class Extractor {
 		} else {
 			System.out.println("El Status Code no es OK es: " + statusConnectionCode);
 		}
-		
+
 		return new AsyncResult<Grupo>(grupo);
 	}
 
@@ -472,7 +472,6 @@ public class Extractor {
 			
 			 }
 		}
-		
 	}
 	
 	public void invesRepetido(Investigador investigador, String estado) {

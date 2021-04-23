@@ -705,13 +705,12 @@ public class ExtractorBibliograficas {
 				try {
 					autores = general.substring(0, inicio - 2);
 				} catch (Exception e) {
-					autores=investigador.getNombre();				}
-				
-				
+					autores=investigador.getNombre();
+				}
 				int cont = i + 1;
 				referencia = "";
 				while (cont < elem.size() && !elem.get(cont).contains("PRODUCCIÓN BIBLIOGRÁFICA")
-						&& !elem.get(cont).contains("PALABRAS:") && !elem.get(cont).contains("SECTORES:")
+						&& !elem.get(cont).contains("PALABRA:S") && !elem.get(cont).contains("SECTORES:")
 						&& !elem.get(cont).contains("AREAS:")) {
 					String actual = elem.get(cont);
 					referencia = referencia + " " + actual;
@@ -846,7 +845,7 @@ public class ExtractorBibliograficas {
 
 				Tipo tipo = new Tipo(Constantes.ID_ARTICULO_NO_CIENTIFICO, Constantes.ARTICULO_NO_CIENTIFICO,
 						tipoProduccion);
-				
+
 				// Autores
 				String general = elem.get(i + 1);
 				int inicio = general.indexOf("\"");
