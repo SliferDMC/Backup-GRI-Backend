@@ -245,6 +245,7 @@ public class ExtractorFormacion {
 		ArrayList<Produccion> actFormacionAux = new ArrayList<>();
 
 		for (int i = 0; i < elem.size(); i++) {
+
 			if (elem.get(i).contains("TRABAJOS DIRIGIDOS/TUTORÍAS - ")) {
 				Produccion actividadesFormacion = new Produccion();
 
@@ -265,7 +266,14 @@ public class ExtractorFormacion {
 					tipo = new Tipo(Constantes.ID_TUTORIA, Constantes.TUTORIA, tipoProduccion);
 
 				}
-				String aux = elem.get(i + 1).substring(0, elem.get(i + 1).lastIndexOf(",")).replaceAll(", ", ",");
+				//// PRUEBA
+				String aux = "";
+				try {
+					aux = elem.get(i + 1).substring(0, elem.get(i + 1).lastIndexOf(",")).replaceAll(", ", ",");
+				} catch (Exception e) {
+					aux = "";
+				}
+				//// PRUEBA
 				autores = utils.verificarAutores(aux, investigador);
 				int cont = i + 1;
 				referencia = "";

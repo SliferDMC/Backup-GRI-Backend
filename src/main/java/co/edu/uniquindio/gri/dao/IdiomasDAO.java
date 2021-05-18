@@ -22,4 +22,8 @@ public class IdiomasDAO {
 		idiomasRepository.save(idiomas);
 	}
 
+	public void deleteAll() {
+		idiomasRepository.deleteAll();
+	}
+	
 }
