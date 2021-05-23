@@ -694,6 +694,19 @@ public class ExtractorBibliograficas {
 
 					tipo = new Tipo(Constantes.ID_LIBRO, Constantes.LIBRO, tipoProduccion);
 
+				// PRUEBA
+				} else if (elem.get(i).contains("LIBROS DE FORMACIÓN")) {
+					
+					tipo = new Tipo(Constantes.ID_LIBRO_FORMACION, Constantes.LIBRO_FORMACION, tipoProduccion);
+				
+				} else if (elem.get(i).contains("LIBROS DE DIVULGACIÓN Y/O COMPILACIÓN DE DIVULGACIÓN")) {
+					
+					tipo = new Tipo(Constantes.ID_LIBRO_DIVULGACION, Constantes.LIBRO_DIVULGACION, tipoProduccion);
+					
+				} else if (elem.get(i).contains("LIBRO DE CREACIÓN")) {
+					
+					tipo = new Tipo(Constantes.ID_LIBRO_CREACION, Constantes.LIBRO_CREACION, tipoProduccion);
+				// PRUEBA	
 				} else {
 
 					tipo = new Tipo(Constantes.ID_OTRO_LIBRO, Constantes.OTRO_LIBRO, tipoProduccion);
@@ -817,6 +830,8 @@ public class ExtractorBibliograficas {
 				produccionBibliografica.setRepetido("NO");
 				utils.identificarRepetidosBibliograficosI(prodBibliograficaAux, produccionBibliografica);
 				prodBibliograficaAux.add(produccionBibliografica);
+				
+				
 			}
 		}
 

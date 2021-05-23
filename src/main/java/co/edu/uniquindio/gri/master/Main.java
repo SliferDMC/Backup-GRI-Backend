@@ -62,8 +62,21 @@ public class Main implements CommandLineRunner {
 
 		List<Grupo> gruposInicial = new ArrayList<>();
 		
-		gruposInicial.add(leerDataSetPruebas(21445L));
+		gruposInicial.add(leerDataSetPruebas(21300L));
 		
+		// PRUEBA grupos nuevos 
+//		gruposInicial.add(leerDataSetPruebas(21445L));
+//		gruposInicial.add(leerDataSetPruebas(21596L));
+//		gruposInicial.add(leerDataSetPruebas(21637L));
+//		gruposInicial.add(leerDataSetPruebas(21647L));
+//		gruposInicial.add(leerDataSetPruebas(21642L));
+//		gruposInicial.add(leerDataSetPruebas(21618L));
+//		gruposInicial.add(leerDataSetPruebas(21536L));
+//		gruposInicial.add(leerDataSetPruebas(21679L));
+//		gruposInicial.add(leerDataSetPruebas(13378L));
+//		gruposInicial.add(leerDataSetPruebas(21612L));
+//		gruposInicial.add(leerDataSetPruebas(17407L));
+		//
 //		gruposInicial.add(leerDataSetPruebas(2595L));
 //		gruposInicial.add(leerDataSetPruebas(6997L));
 //		gruposInicial.add(leerDataSetPruebas(13154L));
@@ -129,12 +142,12 @@ public class Main implements CommandLineRunner {
 
 		// PRUEBA
 		
-		for (int i = 0; i < grupos.size(); i++) {
-			if (i%5 == 0) {
-				System.out.println("-----");
-			}
-			System.out.println("ID grupos sin errores: " + grupos.get(i).getId());
-		}
+//		for (int i = 0; i < grupos.size(); i++) {
+//			if (i%5 == 0) {
+//				System.out.println("-----");
+//			}
+//			System.out.println("ID grupos sin errores: " + grupos.get(i).getId());
+//		}
 		
 		// PRUEBA
 		

@@ -931,5 +931,358 @@ public class ExtractorApSocial {
 			investigador.setProducciones(aprSocial);
 		}
 	}
+	
+	// PRUEBA
+	public void extraerFortalecimientoSocialI(ArrayList<String> elem, Investigador investigador) {
+		
+		String autores = investigador.getNombre();
+		String anio = "";
+		String referencia = "";
+		
+		TipoProduccion tipoProduccion = new TipoProduccion(Constantes.ID_APROPIACION, Constantes.APROPIACION);
+		
+		ArrayList<Produccion> actAprSocialAux = new ArrayList<>();
+		
+		for (int i = 0; i < elem.size(); i++) {
 
+			Produccion actAprSocial = new Produccion();
+			
+			if (elem.get(i).contains("PROCESO DE APROPIACIÓN SOCIAL DEL CONOCIMIENTO PARA EL FORTALECIMIENTO O SOLUCIÓN DE ASUNTOS DE INTERÉS SOCIAL")) {
+				int cont = i + 2;
+				referencia = "";
+				while (cont < elem.size() && !elem.get(cont).contains("PROYECTO VINCULADO:")) {
+					if (elem.get(cont).contains("FECHA DE PRESENTACIÓN:") || elem.get(cont).contains("FORMATO:") ) {
+						cont += 2;
+						continue;
+					}
+					String actual = elem.get(cont);
+					referencia += " " + actual;
+					cont++;
+				}
+				referencia = referencia.trim();
+			}
+			if (elem.get(i).contains("FECHA DE PRESENTACIÓN:")) {
+				anio = elem.get(i+1).substring(0,4);
+			}
+			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				actAprSocial.setAutores(autores);
+				actAprSocial.setReferencia(referencia);
+				actAprSocial.setAnio(anio);
+				Tipo tipo = new Tipo(Constantes.ID_FORTALECIMIENTO_INTERES_SOCIAL, Constantes.FORTALECIMIENTO_INTERES_SOCIAL,
+						tipoProduccion);
+				actAprSocial.setTipo(tipo);
+				actAprSocial.setInvestigador(investigador);
+				actAprSocial.setRepetido("NO");
+				utils.identificarRepetidosI(actAprSocialAux, actAprSocial);
+				actAprSocialAux.add(actAprSocial);
+			}
+		}
+		
+		List<Produccion> aprSocial = investigador.getProducciones();
+		if (aprSocial == null) {
+			investigador.setProducciones(actAprSocialAux);
+		} else {
+			aprSocial.addAll(actAprSocialAux);
+			investigador.setProducciones(aprSocial);
+		}
+		
+	}
+	// PRUEBA
+
+	// PRUEBA
+	public void extraerPublicacionesNoEspecializadasI(ArrayList<String> elem, Investigador investigador) {
+		
+		String autores = investigador.getNombre();
+		String anio = "";
+		String referencia = "";
+		
+		TipoProduccion tipoProduccion = new TipoProduccion(Constantes.ID_APROPIACION, Constantes.APROPIACION);
+		
+		ArrayList<Produccion> actAprSocialAux = new ArrayList<>();
+		
+		for (int i = 0; i < elem.size(); i++) {
+
+			Produccion actAprSocial = new Produccion();
+			
+			if (elem.get(i).contains("PUBLICACIONES EDITORIALES NO ESPECIALIZADAS: CARTILLAS, MANUAL NO ESPECIALIZADO, PERIÓDICOS, REVISTAS, BOLETÍN, ETC")) {
+				int cont = i + 2;
+				referencia = "";
+				while (cont < elem.size()) {
+					if (elem.get(cont).contains("FECHA DE PRESENTACIÓN:")) {
+						cont += 2;
+						continue;
+					}
+					String actual = elem.get(cont);
+					referencia += " " + actual;
+					cont++;
+				}
+				referencia = referencia.trim();
+			}
+			if (elem.get(i).contains("FECHA DE PRESENTACIÓN:")) {
+				anio = elem.get(i+1).substring(0,4);
+			}
+			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				actAprSocial.setAutores(autores);
+				actAprSocial.setReferencia(referencia);
+				actAprSocial.setAnio(anio);
+				Tipo tipo = new Tipo(Constantes.ID_PUBLICACIONES_NO_ESPECIALIZADAS, Constantes.PUBLICACIONES_NO_ESPECIALIZADAS,
+						tipoProduccion);
+				actAprSocial.setTipo(tipo);
+				actAprSocial.setInvestigador(investigador);
+				actAprSocial.setRepetido("NO");
+				utils.identificarRepetidosI(actAprSocialAux, actAprSocial);
+				actAprSocialAux.add(actAprSocial);
+			}
+		}
+		
+		List<Produccion> aprSocial = investigador.getProducciones();
+		if (aprSocial == null) {
+			investigador.setProducciones(actAprSocialAux);
+		} else {
+			aprSocial.addAll(actAprSocialAux);
+			investigador.setProducciones(aprSocial);
+		}
+		
+	}
+	// PRUEBA
+	
+	// PRUEBA
+	public void extraerProduccionesDigitalesI(ArrayList<String> elem, Investigador investigador) {
+		
+		String autores = investigador.getNombre();
+		String anio = "";
+		String referencia = "";
+		
+		TipoProduccion tipoProduccion = new TipoProduccion(Constantes.ID_APROPIACION, Constantes.APROPIACION);
+		
+		ArrayList<Produccion> actAprSocialAux = new ArrayList<>();
+		
+		for (int i = 0; i < elem.size(); i++) {
+
+			Produccion actAprSocial = new Produccion();
+			
+			if (elem.get(i).contains("PRODUCCIONES DE CONTENIDO DIGITAL")) {
+				int cont = i + 2;
+				referencia = "";
+
+				String[] aux = elem.get(0).trim().split(" ");
+				if (aux.length == 5) {
+					referencia += aux[4]+":";
+				} else if (aux.length == 6) {
+					referencia += aux[4] + " " + aux[5]+":";
+				}
+				
+				while (cont < elem.size()) {
+					if (elem.get(cont).contains("FECHA DE PRESENTACIÓN:")) {
+						cont += 2;
+						continue;
+					}
+					String actual = elem.get(cont);
+					referencia += " " + actual;
+					cont++;
+				}
+				referencia = referencia.trim();
+			}
+			if (elem.get(i).contains("FECHA DE PRESENTACIÓN:")) {
+				anio = elem.get(i+1).substring(0,4);
+			}
+			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				actAprSocial.setAutores(autores);
+				actAprSocial.setReferencia(referencia);
+				actAprSocial.setAnio(anio);
+				Tipo tipo = new Tipo(Constantes.ID_PRODUCCIONES_CONTENIDO_DIGITAL, Constantes.PRODUCCIONES_CONTENIDO_DIGITAL,
+						tipoProduccion);
+				actAprSocial.setTipo(tipo);
+				actAprSocial.setInvestigador(investigador);
+				actAprSocial.setRepetido("NO");
+				utils.identificarRepetidosI(actAprSocialAux, actAprSocial);
+				actAprSocialAux.add(actAprSocial);
+			}
+		}
+		
+		List<Produccion> aprSocial = investigador.getProducciones();
+		if (aprSocial == null) {
+			investigador.setProducciones(actAprSocialAux);
+		} else {
+			aprSocial.addAll(actAprSocialAux);
+			investigador.setProducciones(aprSocial);
+		}
+		
+	}
+	// PRUEBA
+	
+	// PRUEBA
+	public void extraerProduccionTransmediaI(ArrayList<String> elem, Investigador investigador) {
+		
+		String autores = investigador.getNombre();
+		String anio = "";
+		String referencia = "";
+		
+		TipoProduccion tipoProduccion = new TipoProduccion(Constantes.ID_APROPIACION, Constantes.APROPIACION);
+		
+		ArrayList<Produccion> actAprSocialAux = new ArrayList<>();
+		
+		for (int i = 0; i < elem.size(); i++) {
+			
+			Produccion actAprSocial = new Produccion();
+			
+			if (elem.get(i).contains("PRODUCCIÓN DE ESTRATEGIAS Y CONTENIDOS TRANSMEDIA")) {
+				int cont = i + 2;
+				referencia = "";
+				
+				while (cont < elem.size()) {
+					if (elem.get(cont).contains("FECHA DE PRESENTACIÓN:")) {
+						cont += 2;
+						continue;
+					}
+					String actual = elem.get(cont);
+					referencia += " " + actual;
+					cont++;
+				}
+				referencia = referencia.trim();
+			}
+			if (elem.get(i).contains("FECHA DE PRESENTACIÓN:")) {
+				anio = elem.get(i+1).substring(0,4);
+			}
+			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				actAprSocial.setAutores(autores);
+				actAprSocial.setReferencia(referencia);
+				actAprSocial.setAnio(anio);
+				Tipo tipo = new Tipo(Constantes.ID_PRODUCCION_CONTENIDO_TRANSMEDIA, Constantes.PRODUCCION_CONTENIDO_TRANSMEDIA,
+						tipoProduccion);
+				actAprSocial.setTipo(tipo);
+				actAprSocial.setInvestigador(investigador);
+				actAprSocial.setRepetido("NO");
+				utils.identificarRepetidosI(actAprSocialAux, actAprSocial);
+				actAprSocialAux.add(actAprSocial);
+			}
+		}
+		
+		List<Produccion> aprSocial = investigador.getProducciones();
+		if (aprSocial == null) {
+			investigador.setProducciones(actAprSocialAux);
+		} else {
+			aprSocial.addAll(actAprSocialAux);
+			investigador.setProducciones(aprSocial);
+		}
+		
+	}
+	// PRUEBA
+	
+	// PRUEBA
+	public void extraerDesarrollosWebI(ArrayList<String> elem, Investigador investigador) {
+		
+		String autores = investigador.getNombre();
+		String anio = "";
+		String referencia = "";
+		
+		TipoProduccion tipoProduccion = new TipoProduccion(Constantes.ID_APROPIACION, Constantes.APROPIACION);
+		
+		ArrayList<Produccion> actAprSocialAux = new ArrayList<>();
+		
+		for (int i = 0; i < elem.size(); i++) {
+			
+			Produccion actAprSocial = new Produccion();
+			
+			if (elem.get(i).contains("DESARROLLOS WEB")) {
+				int cont = i + 2;
+				referencia = "";
+				
+				while (cont < elem.size()) {
+					if (elem.get(cont).contains("FECHA DE PRESENTACIÓN:")) {
+						cont += 2;
+						continue;
+					}
+					String actual = elem.get(cont);
+					referencia += " " + actual;
+					cont++;
+				}
+				referencia = referencia.trim();
+			}
+			if (elem.get(i).contains("FECHA DE PRESENTACIÓN:")) {
+				anio = elem.get(i+1).substring(0,4);
+			}
+			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				actAprSocial.setAutores(autores);
+				actAprSocial.setReferencia(referencia);
+				actAprSocial.setAnio(anio);
+				Tipo tipo = new Tipo(Constantes.ID_DESARROLLOS_WEB, Constantes.DESARROLLOS_WEB,
+						tipoProduccion);
+				actAprSocial.setTipo(tipo);
+				actAprSocial.setInvestigador(investigador);
+				actAprSocial.setRepetido("NO");
+				utils.identificarRepetidosI(actAprSocialAux, actAprSocial);
+				actAprSocialAux.add(actAprSocial);
+			}
+		}
+		
+		List<Produccion> aprSocial = investigador.getProducciones();
+		if (aprSocial == null) {
+			investigador.setProducciones(actAprSocialAux);
+		} else {
+			aprSocial.addAll(actAprSocialAux);
+			investigador.setProducciones(aprSocial);
+		}
+		
+	}
+	// PRUEBA
+
+	// PRUEBA
+	public void extraerTrabajoConjuntoCienciaInvestigacionI(ArrayList<String> elem, Investigador investigador) {
+			
+		String autores = investigador.getNombre();
+		String anio = "";
+		String referencia = "";
+		
+		TipoProduccion tipoProduccion = new TipoProduccion(Constantes.ID_APROPIACION, Constantes.APROPIACION);
+		
+		ArrayList<Produccion> actAprSocialAux = new ArrayList<>();
+		
+		for (int i = 0; i < elem.size(); i++) {
+			
+			Produccion actAprSocial = new Produccion();
+			
+			if (elem.get(i).contains("PROCESO DE APROPIACIÓN SOCIAL DEL CONOCIMIENTO RESULTADO DEL TRABAJO CONJUNTO ENTRE UN CENTRO DE CIENCIA Y UN GRUPO DE INVESTIGACIÓN")) {
+				int cont = i + 2;
+				referencia = "";
+				
+				while (cont < elem.size()) {
+					if (elem.get(cont).contains("FECHA DE PRESENTACIÓN:")) {
+						cont += 2;
+						continue;
+					}
+					String actual = elem.get(cont);
+					referencia += " " + actual;
+					cont++;
+				}
+				referencia = referencia.trim();
+			}
+			if (elem.get(i).contains("FECHA DE PRESENTACIÓN:")) {
+				anio = elem.get(i+1).substring(0,4);
+			}
+			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				actAprSocial.setAutores(autores);
+				actAprSocial.setReferencia(referencia);
+				actAprSocial.setAnio(anio);
+				Tipo tipo = new Tipo(Constantes.ID_TRABAJO_CONJUNTO_CIENCIA_INVESTIGACION, Constantes.TRABAJO_CONJUNTO_CIENCIA_INVESTIGACION,
+						tipoProduccion);
+				actAprSocial.setTipo(tipo);
+				actAprSocial.setInvestigador(investigador);
+				actAprSocial.setRepetido("NO");
+				utils.identificarRepetidosI(actAprSocialAux, actAprSocial);
+				actAprSocialAux.add(actAprSocial);
+			}
+		}
+		
+		List<Produccion> aprSocial = investigador.getProducciones();
+		if (aprSocial == null) {
+			investigador.setProducciones(actAprSocialAux);
+		} else {
+			aprSocial.addAll(actAprSocialAux);
+			investigador.setProducciones(aprSocial);
+		}
+		
+	}
+	// PRUEBA
+	
 }

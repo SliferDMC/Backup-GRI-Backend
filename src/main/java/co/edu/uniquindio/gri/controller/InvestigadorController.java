@@ -206,7 +206,38 @@ public class InvestigadorController {
 				} else if (elem.text().startsWith("Participación ciudadana en proyectos de CTI")) {
 					ArrayList<String> elemParticipacionCiudadanaCti = utils.ordenarArreglo(elem.toString());
 					extractorApSocial.extraerParticipacionCiudadanaCtiI(elemParticipacionCiudadanaCti, investigador);
+				
+				// PRUEBA
+				} else if(elem.text().startsWith("Fortalecimiento o solución de asuntos de interés social")) { // 2.
+					ArrayList<String> elemFortalecimientoSocial = utils.ordenarArreglo(elem.toString());
+					extractorApSocial.extraerFortalecimientoSocialI(elemFortalecimientoSocial, investigador);
+					
+				} else if(elem.text().startsWith("Publicaciones editoriales no especializadas")) { // 6.
+					ArrayList<String> elemPublicacionesNoEspecializadas = utils.ordenarArreglo(elem.toString());
+					extractorApSocial.extraerPublicacionesNoEspecializadasI(elemPublicacionesNoEspecializadas, investigador);
+					
+				} else if(elem.text().startsWith("Producciones de contenido digital")) { // 7.
+					ArrayList<String> elemProduccionesDigitales = utils.ordenarArreglo(elem.toString());
+					extractorApSocial.extraerProduccionesDigitalesI(elemProduccionesDigitales, investigador);
+					
+				} else if(elem.text().startsWith("Producción de estrategias y contenidos transmedia")) {
+					ArrayList<String> elemProduccionTransmedia = utils.ordenarArreglo(elem.toString());
+					extractorApSocial.extraerProduccionTransmediaI(elemProduccionTransmedia, investigador);
+					
+				} else if(elem.text().startsWith("Desarrollos web")) {
+					ArrayList<String> elemDesarrollosWeb = utils.ordenarArreglo(elem.toString()); // 9.
+					extractorApSocial.extraerDesarrollosWebI(elemDesarrollosWeb, investigador);
+					
+				} else if(elem.text().startsWith("Trabajo conjunto entre un Centro de Ciencia y un grupo de investigación")) {
+					ArrayList<String> elemTrabajoConjuntoCienciaInvestigacion = utils.ordenarArreglo(elem.toString()); // 5.
+					extractorApSocial.extraerTrabajoConjuntoCienciaInvestigacionI(elemTrabajoConjuntoCienciaInvestigacion, investigador);
+					
+				} else if(elem.text().startsWith("Generación de insumos de política pública y normatividad")) {
+					ArrayList<String> elemInsumosPoliticaPublicaNormatividad = utils.ordenarArreglo(elem.toString()); // 5.
+					extractorApSocial.extraerInsumosPoliticaPublicaNormatividadI(elemInsumosPoliticaPublicaNormatividad, investigador);
+					
 				}
+				// PRUEBA
 
 				/*
 				 * Extraer Producciones bibliograficas
