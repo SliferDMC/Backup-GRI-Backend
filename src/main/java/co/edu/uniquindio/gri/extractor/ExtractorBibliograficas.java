@@ -705,8 +705,17 @@ public class ExtractorBibliograficas {
 					
 				} else if (elem.get(i).contains("LIBRO DE CREACIÓN")) {
 					
-					tipo = new Tipo(Constantes.ID_LIBRO_CREACION, Constantes.LIBRO_CREACION, tipoProduccion);
-				// PRUEBA	
+					tipo = new Tipo(Constantes.ID_LIBRO_CREACION, Constantes.LIBRO_CREACION, tipoProduccion);	
+					
+				} else if (elem.get(i).contains("TRADUCCIONES FILOLÓGICAS Y EDICIÓN DE FUENTES")) {
+					
+					tipo = new Tipo(Constantes.ID_TRADUCCIONES_FILOLOGICAS, Constantes.TRADUCCIONES_FILOLOGICAS, tipoProduccion);
+						
+				} else if (elem.get(i).contains("MANUALES Y GUÍAS ESPECIALIZADAS")) {
+					
+					tipo = new Tipo(Constantes.ID_MANUALES_GUIAS_ESPECIALIZADAS, Constantes.MANUALES_GUIAS_ESPECIALIZADAS, tipoProduccion);
+					
+				// PRUEBA		
 				} else {
 
 					tipo = new Tipo(Constantes.ID_OTRO_LIBRO, Constantes.OTRO_LIBRO, tipoProduccion);

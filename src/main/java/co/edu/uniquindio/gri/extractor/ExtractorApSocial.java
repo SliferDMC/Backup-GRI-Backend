@@ -951,10 +951,6 @@ public class ExtractorApSocial {
 				int cont = i + 2;
 				referencia = "";
 				while (cont < elem.size() && !elem.get(cont).contains("PROYECTO VINCULADO:")) {
-					if (elem.get(cont).contains("FECHA DE PRESENTACIÓN:") || elem.get(cont).contains("FORMATO:") ) {
-						cont += 2;
-						continue;
-					}
 					String actual = elem.get(cont);
 					referencia += " " + actual;
 					cont++;
@@ -1008,10 +1004,6 @@ public class ExtractorApSocial {
 				int cont = i + 2;
 				referencia = "";
 				while (cont < elem.size()) {
-					if (elem.get(cont).contains("FECHA DE PRESENTACIÓN:")) {
-						cont += 2;
-						continue;
-					}
 					String actual = elem.get(cont);
 					referencia += " " + actual;
 					cont++;
@@ -1073,10 +1065,6 @@ public class ExtractorApSocial {
 				}
 				
 				while (cont < elem.size()) {
-					if (elem.get(cont).contains("FECHA DE PRESENTACIÓN:")) {
-						cont += 2;
-						continue;
-					}
 					String actual = elem.get(cont);
 					referencia += " " + actual;
 					cont++;
@@ -1131,10 +1119,6 @@ public class ExtractorApSocial {
 				referencia = "";
 				
 				while (cont < elem.size()) {
-					if (elem.get(cont).contains("FECHA DE PRESENTACIÓN:")) {
-						cont += 2;
-						continue;
-					}
 					String actual = elem.get(cont);
 					referencia += " " + actual;
 					cont++;
@@ -1189,10 +1173,6 @@ public class ExtractorApSocial {
 				referencia = "";
 				
 				while (cont < elem.size()) {
-					if (elem.get(cont).contains("FECHA DE PRESENTACIÓN:")) {
-						cont += 2;
-						continue;
-					}
 					String actual = elem.get(cont);
 					referencia += " " + actual;
 					cont++;
@@ -1247,10 +1227,6 @@ public class ExtractorApSocial {
 				referencia = "";
 				
 				while (cont < elem.size()) {
-					if (elem.get(cont).contains("FECHA DE PRESENTACIÓN:")) {
-						cont += 2;
-						continue;
-					}
 					String actual = elem.get(cont);
 					referencia += " " + actual;
 					cont++;
@@ -1265,6 +1241,114 @@ public class ExtractorApSocial {
 				actAprSocial.setReferencia(referencia);
 				actAprSocial.setAnio(anio);
 				Tipo tipo = new Tipo(Constantes.ID_TRABAJO_CONJUNTO_CIENCIA_INVESTIGACION, Constantes.TRABAJO_CONJUNTO_CIENCIA_INVESTIGACION,
+						tipoProduccion);
+				actAprSocial.setTipo(tipo);
+				actAprSocial.setInvestigador(investigador);
+				actAprSocial.setRepetido("NO");
+				utils.identificarRepetidosI(actAprSocialAux, actAprSocial);
+				actAprSocialAux.add(actAprSocial);
+			}
+		}
+		
+		List<Produccion> aprSocial = investigador.getProducciones();
+		if (aprSocial == null) {
+			investigador.setProducciones(actAprSocialAux);
+		} else {
+			aprSocial.addAll(actAprSocialAux);
+			investigador.setProducciones(aprSocial);
+		}
+		
+	}
+	// PRUEBA
+	
+	// PRUEBA
+	public void extraerInsumosPoliticaPublicaNormatividadI(ArrayList<String> elem, Investigador investigador) {
+			
+		String autores = investigador.getNombre();
+		String anio = "";
+		String referencia = "";
+		
+		TipoProduccion tipoProduccion = new TipoProduccion(Constantes.ID_APROPIACION, Constantes.APROPIACION);
+		
+		ArrayList<Produccion> actAprSocialAux = new ArrayList<>();
+		
+		for (int i = 0; i < elem.size(); i++) {
+			
+			Produccion actAprSocial = new Produccion();
+			
+			if (elem.get(i).contains("PROCESO DE APROPIACIÓN SOCIAL DEL CONOCIMIENTO PARA LA GENERACIÓN DE INSUMOS DE POLÍTICA PÚBLICA Y NORMATIVIDAD")) {
+				int cont = i + 2;
+				referencia = "";
+				
+				while (cont < elem.size()) {
+					String actual = elem.get(cont);
+					referencia += " " + actual;
+					cont++;
+				}
+				referencia = referencia.trim();
+			}
+			if (elem.get(i).contains("FECHA DE PRESENTACIÓN:")) {
+				anio = elem.get(i+1).substring(0,4);
+			}
+			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				actAprSocial.setAutores(autores);
+				actAprSocial.setReferencia(referencia);
+				actAprSocial.setAnio(anio);
+				Tipo tipo = new Tipo(Constantes.ID_GENERACION_INSUMOS_POLITICA_PUBLICA_NORMATIVIDAD, Constantes.GENERACION_INSUMOS_POLITICA_PUBLICA_NORMATIVIDAD,
+						tipoProduccion);
+				actAprSocial.setTipo(tipo);
+				actAprSocial.setInvestigador(investigador);
+				actAprSocial.setRepetido("NO");
+				utils.identificarRepetidosI(actAprSocialAux, actAprSocial);
+				actAprSocialAux.add(actAprSocial);
+			}
+		}
+		
+		List<Produccion> aprSocial = investigador.getProducciones();
+		if (aprSocial == null) {
+			investigador.setProducciones(actAprSocialAux);
+		} else {
+			aprSocial.addAll(actAprSocialAux);
+			investigador.setProducciones(aprSocial);
+		}
+		
+	}
+	// PRUEBA
+	
+	// PRUEBA
+	public void extraerFortalecimientoDeCadenasI(ArrayList<String> elem, Investigador investigador) {
+			
+		String autores = investigador.getNombre();
+		String anio = "";
+		String referencia = "";
+		
+		TipoProduccion tipoProduccion = new TipoProduccion(Constantes.ID_APROPIACION, Constantes.APROPIACION);
+		
+		ArrayList<Produccion> actAprSocialAux = new ArrayList<>();
+		
+		for (int i = 0; i < elem.size(); i++) {
+			
+			Produccion actAprSocial = new Produccion();
+			
+			if (elem.get(i).contains("PROCESO DE APROPIACIÓN SOCIAL DEL CONOCIMIENTO PARA EL FORTALECIMIENTO DE CADENAS")) {
+				int cont = i + 2;
+				referencia = "";
+				
+				while (cont < elem.size()) {
+					String actual = elem.get(cont);
+					referencia += " " + actual;
+					cont++;
+				}
+				referencia = referencia.trim();
+			}
+			if (elem.get(i).contains("FECHA DE PRESENTACIÓN:")) {
+				anio = elem.get(i+1).substring(0,4);
+			}
+			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				actAprSocial.setAutores(autores);
+				actAprSocial.setReferencia(referencia);
+				actAprSocial.setAnio(anio);
+				Tipo tipo = new Tipo(Constantes.ID_FORTALECIMIENTO_CADENAS_PRODUCTIVAS, Constantes.FORTALECIMIENTO_CADENAS_PRODUCTIVAS,
 						tipoProduccion);
 				actAprSocial.setTipo(tipo);
 				actAprSocial.setInvestigador(investigador);

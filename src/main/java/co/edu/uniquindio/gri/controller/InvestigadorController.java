@@ -233,8 +233,12 @@ public class InvestigadorController {
 					extractorApSocial.extraerTrabajoConjuntoCienciaInvestigacionI(elemTrabajoConjuntoCienciaInvestigacion, investigador);
 					
 				} else if(elem.text().startsWith("Generación de insumos de política pública y normatividad")) {
-					ArrayList<String> elemInsumosPoliticaPublicaNormatividad = utils.ordenarArreglo(elem.toString()); // 5.
+					ArrayList<String> elemInsumosPoliticaPublicaNormatividad = utils.ordenarArreglo(elem.toString()); // 3.
 					extractorApSocial.extraerInsumosPoliticaPublicaNormatividadI(elemInsumosPoliticaPublicaNormatividad, investigador);
+					
+				} else if(elem.text().startsWith("Fortalecimiento de cadenas productivas")) {
+					ArrayList<String> elemFortalecimientoDeCadenas = utils.ordenarArreglo(elem.toString()); // 4.
+					extractorApSocial.extraerFortalecimientoDeCadenasI(elemFortalecimientoDeCadenas, investigador);
 					
 				}
 				// PRUEBA
@@ -266,6 +270,7 @@ public class InvestigadorController {
 				} else if (elem.text().startsWith("Documentos de trabajo")) {
 					ArrayList<String> elemDocumentosTrabajo = utils.ordenarArreglo(elem.toString());
 					extractorBibliograficas.extraerOtraProdBibliograficaI(elemDocumentosTrabajo, investigador);
+					
 				}
 
 				/*
@@ -341,8 +346,8 @@ public class InvestigadorController {
 				} else if (elem.text().startsWith("Talleres Creativos")) {
 					ArrayList<String> elemTalleresCreativos = utils.ordenarArreglo(elem.toString());
 					extractorArte.extraerTallerCreativoI(elemTalleresCreativos, investigador);
+					
 				}
-
 			}
 
 		} else if (estado.equals("NO ACTUAL")) {
