@@ -961,6 +961,11 @@ public class ExtractorApSocial {
 				anio = elem.get(i+1).substring(0,4);
 			}
 			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				
+				if (referencia.length() > 4000) {
+					referencia = referencia.substring(0,4000);
+				}
+				
 				actAprSocial.setAutores(autores);
 				actAprSocial.setReferencia(referencia);
 				actAprSocial.setAnio(anio);
@@ -1014,6 +1019,11 @@ public class ExtractorApSocial {
 				anio = elem.get(i+1).substring(0,4);
 			}
 			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				
+				if (referencia.length() > 4000) {
+					referencia = referencia.substring(0,4000);
+				}
+				
 				actAprSocial.setAutores(autores);
 				actAprSocial.setReferencia(referencia);
 				actAprSocial.setAnio(anio);
@@ -1075,6 +1085,11 @@ public class ExtractorApSocial {
 				anio = elem.get(i+1).substring(0,4);
 			}
 			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				
+				if (referencia.length() > 4000) {
+					referencia = referencia.substring(0,4000);
+				}
+				
 				actAprSocial.setAutores(autores);
 				actAprSocial.setReferencia(referencia);
 				actAprSocial.setAnio(anio);
@@ -1129,6 +1144,11 @@ public class ExtractorApSocial {
 				anio = elem.get(i+1).substring(0,4);
 			}
 			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				
+				if (referencia.length() > 4000) {
+					referencia = referencia.substring(0,4000);
+				}
+				
 				actAprSocial.setAutores(autores);
 				actAprSocial.setReferencia(referencia);
 				actAprSocial.setAnio(anio);
@@ -1183,6 +1203,11 @@ public class ExtractorApSocial {
 				anio = elem.get(i+1).substring(0,4);
 			}
 			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				
+				if (referencia.length() > 4000) {
+					referencia = referencia.substring(0,4000);
+				}
+				
 				actAprSocial.setAutores(autores);
 				actAprSocial.setReferencia(referencia);
 				actAprSocial.setAnio(anio);
@@ -1237,6 +1262,11 @@ public class ExtractorApSocial {
 				anio = elem.get(i+1).substring(0,4);
 			}
 			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				
+				if (referencia.length() > 4000) {
+					referencia = referencia.substring(0,4000);
+				}
+				
 				actAprSocial.setAutores(autores);
 				actAprSocial.setReferencia(referencia);
 				actAprSocial.setAnio(anio);
@@ -1291,6 +1321,11 @@ public class ExtractorApSocial {
 				anio = elem.get(i+1).substring(0,4);
 			}
 			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				
+				if (referencia.length() > 4000) {
+					referencia = referencia.substring(0,4000);
+				}
+				
 				actAprSocial.setAutores(autores);
 				actAprSocial.setReferencia(referencia);
 				actAprSocial.setAnio(anio);
@@ -1345,6 +1380,11 @@ public class ExtractorApSocial {
 				anio = elem.get(i+1).substring(0,4);
 			}
 			if (elem.get(i).contains("PROYECTO VINCULADO:")) {
+				
+				if (referencia.length() > 4000) {
+					referencia = referencia.substring(0,4000);
+				}
+				
 				actAprSocial.setAutores(autores);
 				actAprSocial.setReferencia(referencia);
 				actAprSocial.setAnio(anio);

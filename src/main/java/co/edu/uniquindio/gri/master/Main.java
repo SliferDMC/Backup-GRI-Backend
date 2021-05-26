@@ -56,11 +56,11 @@ public class Main implements CommandLineRunner {
 
 	public List<Grupo> scrapData() throws InterruptedException, ExecutionException {
 
-		List<Grupo> gruposInicial = leerDataSet();
+		//List<Grupo> gruposInicial = leerDataSet();
 
 		// PRUEBA
 
-//		List<Grupo> gruposInicial = new ArrayList<>();
+		List<Grupo> gruposInicial = new ArrayList<>();
 //		
 //		gruposInicial.add(leerDataSetPruebas(2591L));
 		
@@ -87,7 +87,7 @@ public class Main implements CommandLineRunner {
 //		gruposInicial.add(leerDataSetPruebas(6221L));
 //		gruposInicial.add(leerDataSetPruebas(16248L));
 //		gruposInicial.add(leerDataSetPruebas(2593L));
-//
+
 //		gruposInicial.add(leerDataSetPruebas(8427L));
 //		gruposInicial.add(leerDataSetPruebas(8165L));
 //		gruposInicial.add(leerDataSetPruebas(2597L));
@@ -102,7 +102,7 @@ public class Main implements CommandLineRunner {
 //		gruposInicial.add(leerDataSetPruebas(14026L));
 //		gruposInicial.add(leerDataSetPruebas(9161L));
 //		gruposInicial.add(leerDataSetPruebas(4790L));
-//		gruposInicial.add(leerDataSetPruebas(8166L));
+//		gruposInicial.add(leerDataSetPruebas(8166L));	// Terceros 10 grupos
 //		gruposInicial.add(leerDataSetPruebas(11324L));
 //		gruposInicial.add(leerDataSetPruebas(13135L));
 //		gruposInicial.add(leerDataSetPruebas(16984L));
@@ -110,15 +110,76 @@ public class Main implements CommandLineRunner {
 //		gruposInicial.add(leerDataSetPruebas(16858L));
 //		gruposInicial.add(leerDataSetPruebas(2261L));
 		
+//		gruposInicial.add(leerDataSetPruebas(255L));
+//		gruposInicial.add(leerDataSetPruebas(281L));
+//		gruposInicial.add(leerDataSetPruebas(5922L));
+//		gruposInicial.add(leerDataSetPruebas(12919L));
+//		gruposInicial.add(leerDataSetPruebas(9219L));   // Cuartos 10 grupos
+//		gruposInicial.add(leerDataSetPruebas(5918L));
+//		gruposInicial.add(leerDataSetPruebas(2594L));
+//		gruposInicial.add(leerDataSetPruebas(14027L));
+//		gruposInicial.add(leerDataSetPruebas(3707L));
+//		gruposInicial.add(leerDataSetPruebas(5532L));
+		
+//		gruposInicial.add(leerDataSetPruebas(11536L));
+//		gruposInicial.add(leerDataSetPruebas(4691L));
+//		gruposInicial.add(leerDataSetPruebas(7344L));
+//		gruposInicial.add(leerDataSetPruebas(14019L));
+//		gruposInicial.add(leerDataSetPruebas(10089L));  // Quintos 10 grupos
+//		gruposInicial.add(leerDataSetPruebas(13152L));
+//		gruposInicial.add(leerDataSetPruebas(21642L));
+//		gruposInicial.add(leerDataSetPruebas(3041L));
+//		gruposInicial.add(leerDataSetPruebas(16895L));
+//		gruposInicial.add(leerDataSetPruebas(11828L));
+		
+//		gruposInicial.add(leerDataSetPruebas(16905L));
+//		gruposInicial.add(leerDataSetPruebas(7017L));
+//		gruposInicial.add(leerDataSetPruebas(2596L));
+//		gruposInicial.add(leerDataSetPruebas(16908L));
+//		gruposInicial.add(leerDataSetPruebas(2590L));  // Sextos 10 grupos
+//		gruposInicial.add(leerDataSetPruebas(16873L));
+//		gruposInicial.add(leerDataSetPruebas(6618L));
+//		gruposInicial.add(leerDataSetPruebas(8164L));
+//		gruposInicial.add(leerDataSetPruebas(2592L));
+//		gruposInicial.add(leerDataSetPruebas(14856L));
+		
+//		gruposInicial.add(leerDataSetPruebas(7394L));
+//		gruposInicial.add(leerDataSetPruebas(11627L));
+//		gruposInicial.add(leerDataSetPruebas(16906L));
+//		gruposInicial.add(leerDataSetPruebas(16910L));
+//		gruposInicial.add(leerDataSetPruebas(16973L));  // Septimos 10 grupos
+//		gruposInicial.add(leerDataSetPruebas(9581L));
+//		gruposInicial.add(leerDataSetPruebas(6025L));
+//		gruposInicial.add(leerDataSetPruebas(1424L));
+//		gruposInicial.add(leerDataSetPruebas(3922L));
+//		gruposInicial.add(leerDataSetPruebas(2591L));
+//		
+//		gruposInicial.add(leerDataSetPruebas(16976L));
+//		gruposInicial.add(leerDataSetPruebas(13117L));
+//		gruposInicial.add(leerDataSetPruebas(16998L));
+//		gruposInicial.add(leerDataSetPruebas(14017L));
+//		gruposInicial.add(leerDataSetPruebas(8163L));  // Octavos 10 grupos
+//		gruposInicial.add(leerDataSetPruebas(21637L));
+//		gruposInicial.add(leerDataSetPruebas(21647L));
+//		gruposInicial.add(leerDataSetPruebas(21445L));
+//		gruposInicial.add(leerDataSetPruebas(21618L));
+//		gruposInicial.add(leerDataSetPruebas(13378L));
+//		
+//		gruposInicial.add(leerDataSetPruebas(21679L));
+//		gruposInicial.add(leerDataSetPruebas(21536L));
+//		gruposInicial.add(leerDataSetPruebas(21612L));
+//		gruposInicial.add(leerDataSetPruebas(17407L)); // ultimos 5 grupos
+//		gruposInicial.add(leerDataSetPruebas(21596L));
+		
 		// PRUEBA
 		
-		idiomasDAO.deleteAll();
+		//idiomasDAO.deleteAll();
 		
 		// PRUEBA
 		
-		lineasInvestigacionDAO.deleteAll();
+		//lineasInvestigacionDAO.deleteAll();
 
-		investigadorDAO.deleteAll();
+		//investigadorDAO.deleteAll();
 
 		
 		
