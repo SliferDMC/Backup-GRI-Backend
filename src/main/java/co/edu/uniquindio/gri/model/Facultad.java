@@ -42,16 +42,16 @@ public class Facultad implements Serializable {
 	public Facultad() {
 	}
 
+	public long getId() {
+		return id;
+	}
+	
 	public Facultad(long id, String nombre, String mision, String vision, String contacto) {
 		this.id = id;
 		this.nombre = nombre;
 		this.mision = mision;
 		this.vision = vision;
 		this.contacto = contacto;
-	}
-
-	public long getId() {
-		return id;
 	}
 
 	public void setId(long id) {
